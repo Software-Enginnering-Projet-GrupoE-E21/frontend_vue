@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+
+$font-family: 'Lato';
+$font-color-primary: #feda00;
+$font-color-secondary: #4a1e75;
+
+.v-application {
+    [class*='text-'] {
+      font-family: $font-family, Lato !important;
+    }
+    font-family: $font-family, Lato !important;
+}
+
+h2 {
+    color: $font-color-secondary;
+}
+
+p {
+    line-height: 28px;
+}
+
+.color-secondary {
+    color: $font-color-secondary;
+}
+
+.color-primary {
+    color: $font-color-primary;
+}
+
+a {
+    color: #00A6FF !important;
+}
