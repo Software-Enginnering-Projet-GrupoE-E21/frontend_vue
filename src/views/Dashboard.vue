@@ -19,6 +19,7 @@
         <v-btn 
           depressed 
           color="primary black--text mt-3 text-none"
+          @click="$router.push('/cadastro')"
           >Inscreva-se</v-btn>
      </div>
     </v-card>
@@ -101,6 +102,7 @@
         <v-btn 
           depressed 
           color="primary black--text mt-5 text-none"
+          @click="$router.push('/cadastro')"
           >Inscreva-se</v-btn>
      </div>
     </v-card>
@@ -130,6 +132,7 @@
         <v-btn 
           depressed 
           color="secondary white--text mt-5 text-none"
+          @click="$router.push('/cadastro')"
           >Inscreva-se</v-btn>
        </div>
      </div>

@@ -49,7 +49,7 @@
       </v-col>
       <v-col>
             <strong>Ainda não é cadastrado?</strong>
-            <a class="px-2" @click="$router.push('/')">Crie uma conta</a>
+            <a class="px-2" @click="$router.push('/cadastro')">Crie uma conta</a>
       </v-col>
   </v-container>
 </template>
