@@ -5,7 +5,7 @@
     </v-col>
     <v-col class="pb-0 pt-6">
       <v-text-field
-        v-model="formData.userEmail"
+        v-model="formData.userName"
         dense
         placeholder="Nome Completo"
         color="secondary"
@@ -21,7 +21,7 @@
         type="email"
       />
       <v-text-field
-        v-model="formData.userEmail"
+        v-model="formData.userEmailConfirmation"
         dense
         placeholder="Confirmar E-mail"
         color="secondary"
@@ -31,7 +31,7 @@
       <v-row>
         <v-col>
           <v-text-field
-            v-model="formData.password"
+            v-model="formData.userPassword"
             dense
             placeholder="Senha"
             color="secondary"
@@ -44,7 +44,7 @@
         </v-col>
         <v-col>
           <v-text-field
-            v-model="formData.password"
+            v-model="formData.userPasswordconfirmation"
             dense
             placeholder="Confirmar Senha"
             color="secondary"
@@ -59,7 +59,7 @@
       <v-row>
         <v-col>
           <v-text-field
-            v-model="formData.password"
+            v-model="formData.userBirthDate"
             dense
             placeholder="Data de Nascimento"
             color="secondary"
@@ -67,12 +67,12 @@
             class="pb-0"
             single-line
             hide-details="hide"
-            type="password"
+            type="text"
           ></v-text-field>
         </v-col>
         <v-col>
           <v-text-field
-            v-model="formData.password"
+            v-model="formData.userCpf"
             dense
             placeholder="CPF"
             color="secondary"
@@ -84,7 +84,7 @@
           ></v-text-field>
         </v-col>
       </v-row>
-      <v-radio-group v-model="row" row>
+      <v-radio-group v-model="formData.userGender" row>
         <v-radio color="secondary" label="Feminino" value="famale"></v-radio>
         <v-radio color="secondary" label="Masculino" value="male"></v-radio>
         <v-radio color="secondary" label="Outro" value="other"></v-radio>
@@ -96,7 +96,8 @@
             dense
             single-line
             class="pb-0"
-            :items="items"
+            color="secondary"
+            :items="states"
             label="Estado"
             outlined
           ></v-select>
@@ -106,7 +107,8 @@
           <v-select
             dense
             single-line
-            :items="items"
+            color="secondary"
+            :items="cities"
             label="Cidade"
             outlined
           ></v-select>
@@ -115,16 +117,22 @@
       <div class="text-start">
         <a @click="select">Termos de uso</a>
         <v-checkbox
-          v-model="ex4"
+          v-model="formData.userAcceptedTerms"
           label="Concordo com os Termos"
           color="secondary"
+          class="mt-1"
           value="termsAgreement"
           hide-details
         ></v-checkbox>
       </div>
     </v-col>
     <v-col class="text-start mt-4">
-      <v-btn color="primary" @click="Logar">Cadastrar</v-btn>
+      <v-btn
+        depressed
+        color="primary black--text mt-3 text-none"
+        @click="register"
+        >Cadastrar</v-btn
+      >
     </v-col>
   </v-container>
 </template>
@@ -136,20 +144,23 @@ export default {
   },
   data() {
     return {
+      cities: ["São Paulo", "Campinas", "Itu", "Cotia"],
+      states: ["SP"],
       formData: {
+        userName: null,
         userEmail: null,
-        password: null,
+        userEmailConfirmation: null,
+        userPassword: null,
+        userPasswordconfirmation: null,
+        userBirthDate: null,
+        userCpf: null,
+        userGender: null,
+        userAcceptedTerms: false,
       },
     };
   },
   methods: {
-    SendFacebook() {
-      this.formData.userEmail = "douglas.almeida@gmail.com";
-      this.formData.password = "@Doug1234";
-    },
-    Logar() {
-      this.formData.userEmail = null;
-      this.formData.password = null;
+    register() {
       this.$router.push("/");
     },
   },
