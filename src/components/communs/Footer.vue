@@ -4,7 +4,7 @@
       padless
       :fixed="false"
       color="primary"
-      class="pa-10 mt-0"
+      class="pa-10 mt-0 bg-sac"
     >
         <v-row>
             <v-col cols="3" class="text-left">
@@ -58,6 +58,13 @@ export default {
 <style>
 .width-50 {
     width:50%
+}
+
+.bg-sac {
+  background: url('../../assets/DashboardSac.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: auto 95%;
 }
 
 </style>
