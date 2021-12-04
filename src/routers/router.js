@@ -14,7 +14,7 @@ export default new Router({
         {
             path: '/cadastro',
             name: 'register',
-            component: () => import('@/views/Register')
+            component: () => import('@/views/register/RegisterStudent')
         },
         {
             path: '/',
