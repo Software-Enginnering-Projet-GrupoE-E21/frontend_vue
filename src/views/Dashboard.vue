@@ -6,7 +6,8 @@
      fill-height
      color="secondary"
      width="100%"
-     height="500px"
+     height="550px"
+     class="bg-student"
      outlined
      tile>
      <div class="content-left">
@@ -86,6 +87,7 @@
      width="100%"
      height="500px"
      outlined
+     class="bg-teacher"
      tile>
      <div class="content-left mt-16 pt-6">
         <p class="color-primary ma-0">#Voluntarios</p>
@@ -112,9 +114,10 @@
      color="primary"
      width="100%"
      height="500px"
+     class="bg-student-learning"
      outlined
      tile>
-     <div class="text-right mt-10 pt-6 mr-12">
+     <div class="text-right mt-10 pt-6 mr-10">
        <div class="content-right">
         <p class="black--text ma-0"><strong>#ParceriasEscolas</strong></p>
         <h2 class="black--text">
@@ -311,6 +314,27 @@ export default {
 
 .width-100 {
   width: 100%;
+}
+
+.bg-teacher {
+  background: url('../assets/DashboardTeacherExplaining.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: auto 95%;
+}
+
+.bg-student {
+  background: url('../assets/DashboardStudent.png');
+  background-repeat: no-repeat;
+  background-position: bottom right 200px;
+  background-size: auto 100%;
+}
+
+.bg-student-learning {
+  background: url('../assets/DashboardStudentLearning.png');
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: auto 100%;
 }
 
 </style>
