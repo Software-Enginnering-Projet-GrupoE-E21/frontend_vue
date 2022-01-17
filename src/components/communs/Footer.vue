@@ -1,6 +1,5 @@
 <template>
     <v-footer
-      v-bind="localAttrs"
       padless
       :fixed="false"
       color="primary"
