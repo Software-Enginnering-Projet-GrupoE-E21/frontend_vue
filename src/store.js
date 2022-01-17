@@ -1,23 +1,23 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import registerStore from './store/register.store.js';
+import authStore from './store/auth.store.js';
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
     modules: {
-       registerStore 
+       authStore,
     },
     state: {
-        ...registerStore.state
+        ...authStore.state
     },
     actions: {
-        ...registerStore.actions
+        ...authStore.actions
     },
     mutations: {
-        ...registerStore.mutations
+        ...authStore.mutations
     },
     getters: {
-        ...registerStore.getters
+        ...authStore.getters
     }
 })
