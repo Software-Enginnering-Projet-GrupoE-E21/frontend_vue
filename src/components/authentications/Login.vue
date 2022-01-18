@@ -77,7 +77,7 @@ export default {
           username: this.formData.username,
           password: this.formData.password,
         });
-        this.$router.push("/aluno");
+        this.$router.push("/cursos");
       } catch (err) {
         if (
           ["Username or password is invalid"].includes(
