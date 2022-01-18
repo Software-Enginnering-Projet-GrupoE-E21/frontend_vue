@@ -34,9 +34,9 @@
           fill-height
           tile
         >
-          <div class="bg-logo"></div>
-          <div v-show="sigInShow"><SigIn :select="() => sigInShow = false"/></div>
-          <div v-show="!sigInShow"><ResetPassword :exit="() => sigInShow = true"/></div>
+          <div class="bg-logo" @click="$router.push('/')"></div>
+          <div v-show="loginShow"><login :select="() => loginShow = false"/></div>
+          <div v-show="!loginShow"><ResetPassword :exit="() => loginShow = true"/></div>
         </v-card>
       </v-col>
     </v-row>
@@ -44,17 +44,17 @@
 </template>
 
 <script>
-import SigIn from '@/components/authentications/SigIn'
+import Login from '@/components/authentications/Login'
 import ResetPassword from '@/components/authentications/ResetPassword'
 
 export default {
   components: {
-    SigIn,
+    Login,
     ResetPassword
   },
   data() {
     return {
-      sigInShow: true,
+      loginShow: true,
     }
   }
 }
@@ -81,6 +81,7 @@ export default {
 }
 
 .bg-logo{
+  cursor: pointer;
   width: 100%;
   height: 70px;
   background: url('../assets/DinEducLogo.png') center no-repeat;
