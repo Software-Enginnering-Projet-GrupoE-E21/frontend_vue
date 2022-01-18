@@ -226,7 +226,7 @@ export default {
             password: this.password,
             inviteCode: this.inviteCode,
           });
-          this.$router.push("/aluno");
+          this.$router.push("/cursos");
         } catch (err) {
 
           if (
