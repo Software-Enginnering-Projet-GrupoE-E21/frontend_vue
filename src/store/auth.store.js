@@ -3,7 +3,6 @@ import { authService } from "../services/auth.service";
 export default {
   state: {
     userToken: "",
-    user: {},
   },
   mutations: {
     SET_USER_TOKEN(state, { token }) {

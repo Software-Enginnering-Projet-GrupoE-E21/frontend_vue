@@ -228,19 +228,25 @@ export default {
           });
           this.$router.push("/cursos");
         } catch (err) {
-
           if (
             ["Email address or document already in use"].includes(
               err.response.data.message[0]
             )
           )
             this.error = "Email ou documento já cadastrado na plataforma.";
+
+          if (
+            ["Organization is not allowed to register more users"].includes(
+              err.response.data.message[0]
+            )
+          )
+            this.error = "Código de convite inválido. Entre em contato com a organização para solicitar um novo código.";
         }
 
         setTimeout(() => (this.error = ""), 2500);
       }
 
-       setTimeout(() => (this.error = ""), 2500);
+      setTimeout(() => (this.error = ""), 2500);
     },
   },
 };

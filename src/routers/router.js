@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
     mode: 'history',
     routes: [
         {
@@ -19,43 +19,58 @@ export default new Router({
         {
             path: '/cursos',
             component: () => import('@/views/Course'),
+            meta: {
+				requiresAuth: true,
+			},
             children: [
                 {
                     path: '',
-                    name: 'apprenticeship',
-                    component: () => import('@/components/courses/Apprenticeship')
-                    
+                    name: 'search',
+                    component: () => import('@/components/courses/Search'),
+                    meta: {
+                        requiresAuth: true,
+                    },
                 },
                 {
-                    path: 'andamento',
+                    path: 'meu-aprendizado',
                     name: 'apprenticeship',
-                    component: () => import('@/components/courses/Apprenticeship')
+                    component: () => import('@/components/courses/Apprenticeship'),
+                    meta: {
+                        requiresAuth: true,
+                    },
                     
                 },
                 {
                     path: 'atividades',
                     name: 'activity',
-                    component: () => import('@/components/courses/Activity')
+                    component: () => import('@/components/courses/Activity'),
+                    meta: {
+                        requiresAuth: true,
+                    },
                 },
                 {
                     path: 'ranking',
                     name: 'ranking',
-                    component: () => import('@/components/courses/Ranking')
+                    component: () => import('@/components/courses/Ranking'),
+                    meta: {
+                        requiresAuth: true,
+                    },
                 },
                 {
-                    path: 'pesquisa',
-                    name: 'search',
-                    component: () => import('@/components/courses/Search')
-                },
-                {
-                    path: 'conteudo',
+                    path: 'conteudo/:id',
                     name: 'countentCourse',
-                    component: () => import('@/components/courses/CountentCourse')
+                    component: () => import('@/components/courses/CountentCourse'),
+                    meta: {
+                        requiresAuth: true,
+                    },
                 },
                 {
-                    path: 'detalhe',
+                    path: 'detalhes',
                     name: 'detail',
-                    component: () => import('@/components/courses/Detail')
+                    component: () => import('@/components/courses/Detail'),
+                    meta: {
+                        requiresAuth: true,
+                    },
                 }
             ]
         },
@@ -75,4 +90,19 @@ export default new Router({
             redirect: '/'
         }
     ]
-})
+});
+
+router.beforeEach(async (to, from, next) => {
+	if (to.meta.requiresAuth) {
+		const token = window.localStorage.getItem('userToken');
+		if (token) {
+			next();
+		} else {
+			next({ path: '/login', query: { redirect: to.fullPath } });
+		}
+	} else {
+        next();
+    }
+});
+
+export default router;
